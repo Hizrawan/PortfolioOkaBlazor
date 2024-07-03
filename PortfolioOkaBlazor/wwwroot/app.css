@@ -6,7 +6,18 @@
 
 html,
 body {
-    font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+#mainAbout {
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 2rem;
+    background-color: #4E567E;
 }
 
 div#main {
@@ -36,7 +47,7 @@ section {
     section.dark {
         min-height: 100vh;
         color: white;
-        background: rgba(0, 0, 0, 0.25);
+        background: black;
     }
 
     section.light {
@@ -262,7 +273,7 @@ img.social-icon {
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
-    background-color: #d4cfb1; /* Light grey background */
+    background-color: #d4cfb1; 
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     margin: 2rem auto;
@@ -272,14 +283,14 @@ img.social-icon {
 
 .title-about {
     flex-basis: 40%; /* Takes up 40% of the flex container */
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #4E567E; /* Dark blue color */
     margin: 0;
 }
 
 .description-about {
     flex-basis: 55%; /* Takes up 55% of the flex container */
-    font-size: 1rem;
+    font-size: 2rem;
     color: #333; /* Dark grey text for readability */
     margin: 0;
     padding-left: 1rem; /* Spacing between the title and description */
@@ -345,3 +356,4 @@ img.social-icon {
     color: inherit;
     display: block; /* Make the entire area clickable */
 }
+
