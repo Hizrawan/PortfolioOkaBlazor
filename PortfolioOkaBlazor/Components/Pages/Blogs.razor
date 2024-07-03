@@ -1,0 +1,147 @@
+﻿@page "/blogs"
+@attribute [StreamRendering]
+@inject HttpClient Http
+
+<PageTitle>Blogs</PageTitle>
+
+<h1>Blogs</h1>
+
+@if (userPosts == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="grid-container">
+        @for (int i = 0; i < userPosts.Count && i < 5; i++)
+        {
+            <a href="@userPosts[i].Url" target="_blank" class="post-card-link">
+                <div class="post-card">
+                    <h4>@userPosts[i].Title</h4>
+                    <p>@userPosts[i].Description</p>
+                </div>
+            </a>
+        }
+        <a href="https://dev.to/hizrawandwioka" class="post-card-link">
+            <div class="post-card">
+                <h4>Show More</h4>
+                <p>View all posts</p>
+            </div>
+        </a>
+    </div>
+
+}
+@code {
+    private List<Post> userPosts;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dev.to/api/articles?username=hizrawandwioka");
+            request.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
+
+            var response = await Http.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                userPosts = await response.Content.ReadFromJsonAsync<List<Post>>();
+            }
+            else
+            {
+                isError = true;
+                // Log the error or inform the user
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            isError = true;
+            // Handle the exception, log it, or display an error message
+        }
+    }
+
+    private class Post
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+        // Add other properties as needed to match the JSON structure
+    }
+}
+
+
+@* @page "/blogs"
+@inject HttpClient Http
+
+<div>
+
+    <h1>Weather</h1>
+
+    <p>This component demonstrates showing data.</p>
+
+    <div class="post-container">
+        @if (userPosts != null)
+        {
+            foreach (var post in userPosts)
+            {
+                <a href="@post.Url" target="_blank" class="post-card-link">
+                    <div class="post-card">
+                        <h2>@post.Title</h2>
+                        <p>@post.Description</p>
+                    </div>
+                </a>
+            }
+        }
+        else if (isError)
+        {
+            <p>An error occurred while loading posts.</p>
+        }
+        else
+        {
+            <p>Loading posts...</p>
+        }
+    </div>
+
+</div>
+
+
+@code {
+    private List<Post> userPosts;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://dev.to/api/articles?username=hizrawandwioka");
+            request.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
+
+            var response = await Http.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                userPosts = await response.Content.ReadFromJsonAsync<List<Post>>();
+            }
+            else
+            {
+                isError = true;
+                // Log the error or inform the user
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            isError = true;
+            // Handle the exception, log it, or display an error message
+        }
+    }
+
+    private class Post
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+        // Add other properties as needed to match the JSON structure
+    }
+}
+ *@

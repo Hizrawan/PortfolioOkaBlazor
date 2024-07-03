@@ -1,0 +1,60 @@
+﻿@page "/work"
+@attribute [StreamRendering]
+
+<PageTitle>Weather</PageTitle>
+<div>
+    <h1>Work Experience</h1>
+    <h2> Xiangshun Information Co., Ltd</h2>
+
+    <p>Software Engineer</p>
+    <h2>Multimedia Security Laboratory - NCUT</h2>
+
+    <p>Research Assistant</p>
+    <h2>Fujitsu Indonesia</h2>
+
+    <p>Functional Developer / Fulstack Engineer</p>
+    <h2>PT. Lapi Divusi</h2>
+
+    <p>Programmer Internship</p>
+</div>
+<div>
+    <h1>Organization Experience</h1>
+    <h2>
+        Himpunan Mahasiswa Komputer- Politeknik Negeri Bandung
+    </h2>
+
+
+    <p>Anggota Departement Luar Himpunan</p>
+    <h2> Paduan Suara Mahasiswa - Politeknik Negeri Bandung</h2>
+
+    <p>Anggota Tim Lomba 2016</p>
+</div>
+
+
+
+@code {
+    private WeatherForecast[]? forecasts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Simulate asynchronous loading to demonstrate streaming rendering
+        await Task.Delay(500);
+
+        var startDate = DateOnly.FromDateTime(DateTime.Now);
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = startDate.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = summaries[Random.Shared.Next(summaries.Length)]
+            }).ToArray();
+    }
+
+    private class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+        public int TemperatureC { get; set; }
+        public string? Summary { get; set; }
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+}
