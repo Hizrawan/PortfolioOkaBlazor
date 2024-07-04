@@ -18,10 +18,10 @@ body {
     min-width: 100vw;
     padding: 2rem;
     background-color: #4E567E;
-    margin-top: 705vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 400vh;
 }
 
 #mainblog {
@@ -118,29 +118,6 @@ section {
     position: relative;
 }
 
-    section.dark {
-        min-height: 100vh;
-        color: white;
-        background: black;
-    }
-
-    section.light {
-        color: black;
-        background: rgba(255, 255, 255, 0.35);
-        padding: 8rem 0;
-    }
-
-    section img.background {
-        width: 100vmax;
-        height: 100%;
-        z-index: -1;
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translate(-50%, 0);
-        pointer-events: none;
-        object-fit: cover;
-    }
 
 h1 {
     font-weight: 300;
@@ -345,14 +322,12 @@ img.social-icon {
 .about-section {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 2rem;
     background-color: #d4cfb1;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    margin: 2rem auto;
-    max-width: 1200px; /* Maximum width with centering */
-    min-height: 250px;
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
 }
 
 #test {
@@ -360,26 +335,24 @@ img.social-icon {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: stretch;
+    gap: 1rem;
 }
 
 #testwork {
     flex-direction: row;
-    margin-top: 25px !important;
+  
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
     align-items: stretch;
-    padding: 50px
 }
 
 #testblog {
     flex-direction: row;
-    margin-top: 25px !important;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     align-items: stretch;
-    padding: 50px
 }
 
 #testproject {
@@ -389,7 +362,6 @@ img.social-icon {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     align-items: stretch;
-    padding: 50px
 }
 
 .work-section {
@@ -410,7 +382,6 @@ img.social-icon {
     background-color: #d4cfb1;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    margin: 2rem auto;
     min-width: calc(33.333% - 1rem);
 }
 
@@ -422,22 +393,8 @@ img.social-icon {
     background-color: #d4cfb1;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    margin: 2rem auto;
     min-width: calc(33.333% - 1rem);
 }
-
-.blog-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    background-color: #d4cfb1;
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    margin: 2rem auto;
-    min-width: calc(33.333% - 1rem);
-}
-
 .title-about {
     flex-basis: 40%; /* Takes up 40% of the flex container */
     font-size: 3rem;
@@ -466,7 +423,6 @@ img.social-icon {
     background-color: #f7f7f7; /* Lighter background for contrast */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin: 1rem auto 2rem; /* Spacing above and below the section */
     max-width: 1200px; /* Maximum width with centering */
 }
 
@@ -487,7 +443,6 @@ img.social-icon {
     }
 
 .grid-container {
-    margin-top: 25px !important;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
@@ -501,7 +456,7 @@ img.social-icon {
     border: 1px solid #ccc;
     padding: 1rem;
     width: 20vw;
-    height: 47vh;
+    height: 30vh;
     text-align: center;
     background-color: #D9D9D6;
     border-radius: 10px; /* Rounded edges */
@@ -509,7 +464,7 @@ img.social-icon {
     transition: 0.3s;
     display: flex; /* Added to make the content of the card a flex container */
     flex-direction: column; /* Aligns children of the card vertically */
-    justify-content: space-between; /* Distributes space around items */
+
 }
 
     .post-card:hover {

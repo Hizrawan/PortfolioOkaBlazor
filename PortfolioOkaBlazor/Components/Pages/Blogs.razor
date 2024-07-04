@@ -4,40 +4,42 @@
 }
 else
 {
-    <section id="mainblog">
+    
 
-        <div id="blog-section">
-            <div id="testblog">
-                @for (int i = 0; i < UserPosts.Count && i < 5; i++)
-                {
-                    <a href="@UserPosts[i].Url" target="_blank" class="post-card-link">
-                        <div class="post-card">
-                            <h4>@UserPosts[i].Title</h4>
-                            <p>@UserPosts[i].Description</p>
-                        </div>
-                    </a>
-                }
-                <a href="https://github.com/Hizrawan" class="post-card-link">
+
+<section id="mainblog">
+    <div id="blog-section">
+
+        <div id="testblog">
+
+            @for (int i = 0; i < UserPosts.Count && i < 5; i++)
+            {
+                <a href="@UserPosts[i].Url" target="_blank" class="post-card-link">
                     <div class="post-card">
-                        <h4>Show More</h4>
-                        <p>View all posts</p>
+                        <h4>@UserPosts[i].Title</h4>
+                        <p>@UserPosts[i].Description</p>
                     </div>
                 </a>
-            </div>
-        </div>
-
-
-        <div style="position: absolute; bottom: 1rem; left: 50%;">
-            <a href="#contact" target="_top">
-                <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
+            }
+            <a href="https://github.com/Hizrawan" class="post-card-link">
+                <div class="post-card">
+                    <h4>Show More</h4>
+                    <p>View all posts</p>
+                </div>
             </a>
         </div>
-        <h1>Blogs</h1>
-    </section>
+    </div>
 
 
+    <div style="position: absolute; bottom: 1rem; left: 50%;">
+        <a href="#mainproject" target="_top">
+            <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
+        </a>
+    </div>
+</section>
 
 }
+
 
 @code {
     [Parameter]
