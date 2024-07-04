@@ -18,7 +18,7 @@ body {
     min-width: 100vw;
     padding: 2rem;
     background-color: #4E567E;
-    margin-top: 590px;
+    margin-top: 400vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,6 +47,13 @@ body {
 }
 
 div#main {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.mainedus {
     display: flex;
     flex-direction: column;
 }
@@ -295,6 +302,20 @@ img.social-icon {
 }
 
 .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: #d4cfb1;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    margin: 2rem auto;
+    max-width: 1200px; /* Maximum width with centering */
+    min-height: 250px;
+}
+
+
+.edu-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
