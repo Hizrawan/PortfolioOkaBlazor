@@ -1,7 +1,4 @@
-﻿@page "/work"
-@attribute [StreamRendering]
-
-<PageTitle>Weather</PageTitle>
+﻿
 <div>
     <h1>Work Experience</h1>
     <h2> Xiangshun Information Co., Ltd</h2>
@@ -32,29 +29,34 @@
 
 
 
-@code {
-    private WeatherForecast[]? forecasts;
 
-    protected override async Task OnInitializedAsync()
-    {
-        // Simulate asynchronous loading to demonstrate streaming rendering
-        await Task.Delay(500);
 
-        var startDate = DateOnly.FromDateTime(DateTime.Now);
-        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
-        forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = startDate.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = summaries[Random.Shared.Next(summaries.Length)]
-            }).ToArray();
-    }
+<section id="edu-section">
+    <div>
 
-    private class WeatherForecast
-    {
-        public DateOnly Date { get; set; }
-        public int TemperatureC { get; set; }
-        public string? Summary { get; set; }
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
-}
+        <div id="main" style="margin-top:0px; background-color:antiquewhite;">
+            <div class="edu-section">
+                <h2 class="education-h1">National Chin-Yi University of Technology</h2>
+
+                <p>Master Degree - Computer Science</p>
+            </div>
+        </div>
+        <div id="main" style="background-color:cadetblue;">
+            <div class="edu-section">
+                <h2 class="education-h1">Bina Nusantara University</h2>
+
+                <p>Bachelor Degree - Computer Science</p>
+            </div>
+        </div>
+        <div id="main">
+            <div class="edu-section">
+                <h2 class="education-h1">Politeknik Negeri Bandung</h2>
+
+                <p>Diploma Degree - Computer Science</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+

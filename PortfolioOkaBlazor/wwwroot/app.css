@@ -314,18 +314,24 @@ img.social-icon {
     min-height: 250px;
 }
 
+#test {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    min-width: 100vw;
+    min-width: calc(33.333% - 1rem);
+}
 
 .edu-section {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
     padding: 2rem;
     background-color: #d4cfb1;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     margin: 2rem auto;
-    max-width: 1200px; /* Maximum width with centering */
-    min-height: 250px;
+    min-width: calc(33.333% - 1rem);
 }
 
 .title-about {
