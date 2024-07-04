@@ -2,6 +2,7 @@
 @page "/about"
 @attribute [StreamRendering]
 @inject IJSRuntime JSRuntime
+@inject HttpClient Http
 
 
 <PageTitle>About Me</PageTitle>
@@ -9,9 +10,67 @@
     <About />
     <Skills />
     <Education />
-    <Work/>
-    <Projects/>
-    <Blogs/>
-    <Contact/>
+    <Work />
+    <Projects UserPosts="userPosts" />
+    <Blogs UserPosts="userPostsBlog" />
+    <Contact />
 </div>
 
+
+@code {
+    private List<Projects.Post> userPosts;
+    private bool isError = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/users/hizrawan/repos?sort=created&direction=desc");
+            var requestblog = new HttpRequestMessage(HttpMethod.Get, "https://dev.to/api/articles?username=hizrawandwioka");
+            request.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
+            requestblog.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
+
+            var response = await Http.SendAsync(request);
+            var responseblog = await Http.SendAsync(requestblog);
+
+            if (response.IsSuccessStatusCode)
+            {
+                userPosts = await response.Content.ReadFromJsonAsync<List<Projects.Post>>();
+            }
+            if (responseblog.IsSuccessStatusCode)
+            {
+                userPostsBlog = await responseblog.Content.ReadFromJsonAsync<List<Blogs.Post>>();
+            }
+            else
+            {
+                isError = true;
+                // Log the error or inform the user
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            isError = true;
+            // Handle the exception, log it, or display an error message
+        }
+    }
+
+    private class Post
+    {
+        public string name { get; set; }
+        public string html_url { get; set; }
+        // Add other properties as needed to match the JSON structure
+    }
+
+    private List<Blogs.Post> userPostsBlog;
+    private bool isErrorBlog = false;
+
+
+
+    private class PostBlog
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+        // Add other properties as needed to match the JSON structure
+    }
+}
