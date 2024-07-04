@@ -1,4 +1,12 @@
 ﻿@page "/"
+@page "/about"
+@attribute [StreamRendering]
+@inject IJSRuntime JSRuntime
 
-<About/>
-<Skills />
+
+<PageTitle>About Me</PageTitle>
+<div class="mainpage">
+    <About />
+    <Skills />
+</div>
+

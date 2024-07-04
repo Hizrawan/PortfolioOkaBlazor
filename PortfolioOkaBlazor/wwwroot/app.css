@@ -6,11 +6,11 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
 }
 
 #mainAbout {
@@ -18,6 +18,32 @@ body {
     min-width: 100vw;
     padding: 2rem;
     background-color: #4E567E;
+    margin-top: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainskills {
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 2rem;
+    background-color: #d4cfb1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mainpage {
+    min-height: 100vh;
+    min-width: 100vw;
+    padding: 2rem;
+    background-color: #4E567E;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 }
 
 div#main {
@@ -273,7 +299,7 @@ img.social-icon {
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
-    background-color: #d4cfb1; 
+    background-color: #d4cfb1;
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     margin: 2rem auto;
@@ -356,4 +382,3 @@ img.social-icon {
     color: inherit;
     display: block; /* Make the entire area clickable */
 }
-
