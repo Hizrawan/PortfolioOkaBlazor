@@ -18,7 +18,7 @@ body {
     min-width: 100vw;
     padding: 2rem;
     background-color: #4E567E;
-    margin-top: 730vh;
+    margin-top: 705vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,8 +28,7 @@ body {
     min-height: 100vh;
     min-width: 100vw;
     padding: 2rem;
-    background-color: #4E567E;
-    margin-top: 730vh;
+    background-color: #d4cfb1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -358,12 +357,9 @@ img.social-icon {
 
 #test {
     flex-direction: row;
-    margin-top: 25px !important;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
     align-items: stretch;
-    padding: 50px
 }
 
 #testwork {
@@ -447,6 +443,14 @@ img.social-icon {
     font-size: 3rem;
     color: #4E567E; /* Dark blue color */
     margin: 0;
+}
+
+.title-edu {
+    font-weight: 150;
+    font-family: "Cormorant Garamond", serif;
+    flex-basis: 40%; /* Takes up 40% of the flex container */
+    font-size: 3rem;
+    color: black; /* Dark blue color */
 }
 
 .description-about {
