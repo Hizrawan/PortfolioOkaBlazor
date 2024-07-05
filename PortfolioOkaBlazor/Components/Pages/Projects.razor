@@ -1,44 +1,46 @@
-﻿@if (UserPosts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <section id="mainproject">
-        <h1>Projects</h1>
+﻿
+<section id="mainproject">
+    <h1>Projects</h1>
+    <div class="project-section">
 
-        <div id="project-section">
-            <div>
-                @for (int i = 0; i < UserPosts.Count && i < 3; i++)
-                {
-                    <a href="@UserPosts[i].html_url" target="_blank" class="post-card-link">
-                        <div class="post-card">
-                            <h4>@UserPosts[i].name</h4>
-                            <p>@UserPosts[i].description</p>
-                            <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">@UserPosts[i].html_url</p>
-                        </div>
-                    </a>
-                }
-                <a href="https://github.com/Hizrawan" class="post-card-link">
-                    <div class="post-card">
-                        <h4>Show More</h4>
-                        <p>View all posts</p>
-                    </div>
-                </a>
+        <a href="https://github.com/Hizrawan/PortfolioOkaBlazor" target="_blank" class="post-card-link">
+            <div class="post-card">
+                <h4>Portfolio Website</h4>
+                <p style="  -webkit-line-clamp: 2 -webkit-box-orient: vertical; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">A website for showcasing my skills, achievements. Build Using .Net Core 8, and Blazor.</p>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">https://github.com/Hizrawan/PortfolioOkaBlazor</p>
             </div>
-        </div>
+        </a>
+        <a href="https://github.com/Hizrawan/PortfolioOkaBlazor" target="_blank" class="post-card-link">
+            <div class="post-card">
+                <h4>Portfolio Website</h4>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">A website for showcasing my skills, achievements. Build Using .Net Core 8, and Blazor.</p>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">https://github.com/Hizrawan/PortfolioOkaBlazor</p>
+            </div>
+        </a>
+        <a href="https://github.com/Hizrawan/PortfolioOkaBlazor" target="_blank" class="post-card-link">
+            <div class="post-card">
+                <h4>Portfolio Website</h4>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">A website for showcasing my skills, achievements. Build Using .Net Core 8, and Blazor.</p>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">https://github.com/Hizrawan/PortfolioOkaBlazor</p>
+            </div>
+        </a>
+        <a href="https://github.com/Hizrawan" class="post-card-link">
+            <div class="post-card">
+                <h4>Show More</h4>
+                <p>View all posts</p>
+            </div>
+        </a>
+    </div>
 
 
-        <div style="position: absolute; bottom: 1rem; left: 50%;">
-            <a href="#mainblog" target="_top">
-                <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
-            </a>
-        </div>
-    </section>
+    <div style="position: absolute; bottom: 1rem; left: 50%;">
+        <a href="#mainblog" target="_top">
+            <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
+        </a>
+    </div>
+</section>
 
 
-
-}
 
 @code {
     [Parameter]

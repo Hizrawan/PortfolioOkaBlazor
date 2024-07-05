@@ -1,23 +1,20 @@
 ﻿@if (UserPosts == null)
 {
-    <p><em>Loading...</em></p>
 }
 else
 {
-    
 
 
-<section id="mainblog">
-    <div id="blog-section">
 
-        <div id="testblog">
+    <section id="mainblog">
+        <div class="blog-section">
 
             @for (int i = 0; i < UserPosts.Count && i < 5; i++)
             {
                 <a href="@UserPosts[i].Url" target="_blank" class="post-card-link">
                     <div class="post-card">
-                        <h4>@UserPosts[i].Title</h4>
-                        <p>@UserPosts[i].Description</p>
+                        <strong> @UserPosts[i].Title</strong>
+                        <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;display: block;width: 100%;">@UserPosts[i].Description</p>
                     </div>
                 </a>
             }
@@ -28,15 +25,15 @@ else
                 </div>
             </a>
         </div>
-    </div>
 
 
-    <div style="position: absolute; bottom: 1rem; left: 50%;">
-        <a href="#mainproject" target="_top">
-            <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
-        </a>
-    </div>
-</section>
+        <div style="position: absolute; bottom: 1rem; left: 50%;">
+            <a href="#contact" target="_top">
+                <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
+            </a>
+        </div>
+        <h1>Blogs</h1>
+    </section>
 
 }
 

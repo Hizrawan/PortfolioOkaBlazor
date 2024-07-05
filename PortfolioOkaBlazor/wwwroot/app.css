@@ -47,7 +47,7 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-top: 640vh;
+        margin-top: 600vh
     }
 
     #mainblog {
@@ -356,6 +356,26 @@ body {
         margin-top: 0 !important;
     }
 
+    .blog-section {
+        display: grid;
+        align-items: center;
+        padding: 1rem;
+        background-color: #4E567E;
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-section {
+        display: grid;
+        align-items: center;
+        background-color: cadetblue;
+        margin-left: 15px;
+        border-radius: 8px; /* Rounded corners */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     #test {
         flex-direction: row;
         display: grid;
@@ -373,11 +393,19 @@ body {
     }
 
     #testblog {
-        flex-direction: row;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-        align-items: stretch;
+        flex: 1;
+        min-width: calc(33.333% - 1rem); /* Adjust the width as needed */
+        border: 1px solid #ccc;
+        padding: 1rem;
+        width: 20vw;
+        height: 30vh;
+        text-align: center;
+        background-color: #D9D9D6;
+        border-radius: 10px; /* Rounded edges */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Shadow effect */
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column; /* Aligns children of the card vertically */
     }
 
     #testproject {
@@ -397,20 +425,27 @@ body {
         background-color: #d4cfb1;
         border-radius: 8px; /* Rounded corners */
         box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        max-height: 70vh;
     }
+
+        .work-section h2 {
+            margin-bottom: 1px; /* Spacing below the heading */
+        }
+
+        .work-section ul {
+            list-style-type: none; /* Remove default list styling */
+            padding: 0; /* Remove default padding */
+        }
+
+        .work-section li {
+            background-color: #e9e7e2; /* Light grey background for each skill */
+            padding: 0.5rem 1rem; /* Padding inside each skill */
+            margin-bottom: 0.5rem; /* Spacing between skills */
+            border-radius: 1px; /* Rounded corners for skill items */
+            font-size: 11px;
+        }
 
     .edu-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem;
-        background-color: #d4cfb1;
-        border-radius: 8px; /* Rounded corners */
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-        min-width: calc(33.333% - 1rem);
-    }
-
-    .project-section {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -468,6 +503,8 @@ body {
             border-radius: 4px; /* Rounded corners for skill items */
         }
 
+
+
     .grid-container {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -475,6 +512,7 @@ body {
         align-items: stretch;
         padding: 50px
     }
+
 
     .post-card {
         flex: 1;
@@ -499,6 +537,6 @@ body {
     .post-card-link {
         text-decoration: none;
         color: inherit;
-        display: block; /* Make the entire area clickable */
+        padding: 2px /* Make the entire area clickable */
     }
 }
