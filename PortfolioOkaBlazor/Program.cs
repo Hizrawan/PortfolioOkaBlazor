@@ -14,6 +14,7 @@ using PortfolioOkaBlazor.Features.WorkExperiences.Queries.List;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Create;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Delete;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Update;
+using PortfolioOkaBlazor.Services;
 
 
 
@@ -22,10 +23,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddScoped<EducationService>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped(sp =>
 {

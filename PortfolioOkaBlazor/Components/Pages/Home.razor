@@ -1,15 +1,18 @@
 ﻿@page "/"
 @page "/about"
+@using PortfolioOkaBlazor.Services
+@using PortfolioOkaBlazor.Domain
 @attribute [StreamRendering]
 @inject IJSRuntime JSRuntime
 @inject HttpClient Http
+@inject EducationService EducationService
 
 
 <PageTitle>About Me</PageTitle>
 <div class="mainpage">
     <About />
     <Skills />
-    <Education />
+    <Education edu="educations" />
     <Work />
     <Projects UserPosts="userPosts" />
     <Blogs UserPosts="userPostsBlog" />
@@ -25,6 +28,7 @@
     {
         try
         {
+            educations = await EducationService.GetEducationsAsync();
             var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/users/hizrawan/repos?sort=created&direction=desc");
             var requestblog = new HttpRequestMessage(HttpMethod.Get, "https://dev.to/api/articles?username=hizrawandwioka");
             request.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
@@ -73,4 +77,7 @@
         public string Url { get; set; }
         // Add other properties as needed to match the JSON structure
     }
+
+    private List<EducationData> educations;
+
 }

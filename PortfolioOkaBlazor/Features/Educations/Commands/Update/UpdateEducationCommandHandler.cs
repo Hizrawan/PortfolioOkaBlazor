@@ -9,7 +9,7 @@ namespace PortfolioOkaBlazor.Features.Educations.Commands.Update
     {
         public async Task<Guid> Handle(UpdateEducationCommand command, CancellationToken cancellationToken)
         {
-            var Education = new Domain.EducationData(command.UnivesityName, command.Major, command.GPA);
+            var Education = new Domain.EducationData(command.UnivesityName, command.Major, command.GPA, command.Color, command.Link, command.Image);
             await context.Educations.AddAsync(Education);
             await context.SaveChangesAsync();
             return Education.Id;

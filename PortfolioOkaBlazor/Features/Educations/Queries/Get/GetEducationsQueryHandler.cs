@@ -15,7 +15,7 @@ namespace PortfolioOkaBlazor.Features.Educations.Queries.Get
             {
                 return null;
             }
-            return new EducationDto(Education.Id, Education.UniversityName, Education.Major, Education.GPA);
+            return new EducationDto(Education.Id, Education.UniversityName, Education.Major, Education.GPA, Education.Color, Education.Link, Education.Image);
         }
     }
 }

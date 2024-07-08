@@ -10,7 +10,7 @@ namespace PortfolioOkaBlazor.Features.Educations.Queries.List
         public async Task<List<EducationDto>> Handle(ListEducationsQuery request, CancellationToken cancellationToken)
         {
             return await context.Educations
-                .Select(p => new EducationDto(p.Id, p.UniversityName, p.Major, p.GPA))
+                .Select(p => new EducationDto(p.Id, p.UniversityName, p.Major, p.GPA, p.Color, p.Link, p.Image))
                 .ToListAsync();
         }
     }

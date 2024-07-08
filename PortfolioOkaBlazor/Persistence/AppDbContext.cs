@@ -16,9 +16,9 @@ namespace PortfolioOkaBlazor.Persistence
         {
             modelBuilder.Entity<EducationData>().HasKey(p => p.Id);
             modelBuilder.Entity<EducationData>().HasData(
-                 new EducationData("National Chin-Yi University of Technology", "Master Degree - Computer Science", "3.92"),
-                 new EducationData("Bina Nusantara University", "Bachelor Degree - Computer Science", "3.24"),
-                 new EducationData("Politeknik Negeri Bandung", "Associate Degree - Computer Science", "2.81")
+                 new EducationData("National Chin-Yi University of Technology", "Master Degree - Computer Science", "GPA : 3.92", "#d4cfb1", "https://www.ncut.edu.tw/", "/images/logoncut.png"),
+                 new EducationData("Bina Nusantara University", "Bachelor Degree - Computer Science", "GPA : 3.24", "cadetblue", "https://binus.ac.id/", "/images/logobinus.png"),
+                 new EducationData("Politeknik Negeri Bandung", "Associate Degree - Computer Science", "GPA : 2.81", "#4E567E", "https://www.polban.ac.id/", "/images/logopolban.png")
 
             );
 

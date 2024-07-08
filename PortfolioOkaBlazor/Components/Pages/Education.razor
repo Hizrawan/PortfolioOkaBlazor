@@ -1,40 +1,61 @@
-﻿
+﻿@using PortfolioOkaBlazor.Domain
 
-<section id="mainedu">
-    <div id="edu-section">
-        <h2 class="title-edu" style="margin-bottom:0px !important">Education</h2>
+@if (edu == null)
+{
+}
+else
+{
+    <section id="mainedu">
+        <div id="edu-section">
+            <h2 class="title-edu" style="margin-bottom:0px !important">Education</h2>
 
-        <div id="test" style="margin-top:0px !important">
-            <a href="https://www.ncut.edu.tw/" target="_blank" class="post-card-link">
-                <div class="edu-section" style="background-color:#d4cfb1;">
-                    <h3 class="education-h1">National Chin-Yi University of Technology</h3>
-                    <strong>Master Degree - Computer Science - GPA : 3.92</strong>
-                    <img src="/images/logoncut.png" width="180" height="180" style="padding-top:10px;" />
-                </div>
+            <div id="test" style="margin-top:0px !important">
+                @foreach (EducationData test in edu)
+                {
+                    <a href="@test.Link" target="_blank" class="post-card-link">
+                        <div class="edu-section" style="background-color:@test.Color;  align-items: flex-start;">
+                            <h3 class="education-h1"> @test.UniversityName</h3>
+                            <strong> @test.Major</strong>
+                            <p> @test.GPA</p>
+                            <img src="@test.Image" width="180" height="180" style="padding-top:10px; display: block; margin: 0 auto;" />
+                        </div>
+                    </a>
+                }
+                @*    <a href="https://www.ncut.edu.tw/" target="_blank" class="post-card-link">
+            <div class="edu-section" style="background-color:#d4cfb1;">
+            <h3 class="education-h1">National Chin-Yi University of Technology</h3>
+            <strong>Master Degree - Computer Science - GPA : 3.92</strong>
+            <img src="/images/logoncut.png" width="180" height="180" style="padding-top:10px;" />
+            </div>
             </a>
+
             <a href="https://binus.ac.id/" target="_blank" class="post-card-link">
-                <div class="edu-section" style="background-color:cadetblue;">
-                    <h3 class="edhucation-h1">Bina Nusantara University</h3>
-                    <strong>Bachelor Degree - Computer Science - GPA : 3.27</strong>
-                    <img src="/images/logobinus.png" width="200" height="200" style="padding-top:10px;" />
-                </div>
+            <div class="edu-section" style="background-color:cadetblue;">
+            <h3 class="edhucation-h1">Bina Nusantara University</h3>
+            <strong>Bachelor Degree - Computer Science - GPA : 3.27</strong>
+            <img src="/images/logobinus.png" width="200" height="200" style="padding-top:10px;" />
+            </div>
             </a>
             <a href="https://www.polban.ac.id/" target="_blank" class="post-card-link">
-                <div class="edu-section" style="background-color:#4E567E;">
-                    <h3 class="education-h1">Politeknik Negeri Bandung</h3>
-                    <strong>Diploma Degree - Computer Science - GPA : 2.8</strong>
-                    <img src="/images/logopolban.png" width="150" height="200" style="padding-top:10px;" />
-                </div>
+            <div class="edu-section" style="background-color:#4E567E;">
+            <h3 class="education-h1">Politeknik Negeri Bandung</h3>
+            <strong>Diploma Degree - Computer Science - GPA : 2.8</strong>
+            <img src="/images/logopolban.png" width="150" height="200" style="padding-top:10px;" />
+            </div>
+            </a> *@
+            </div>
+        </div>
+
+
+        <div style="position: absolute; bottom: 2rem; left: 50%;">
+            <a href="#mainwork" target="_top">
+                <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
             </a>
         </div>
-    </div>
+    </section>
+}
 
-
-    <div style="position: absolute; bottom: 2rem; left: 50%;">
-        <a href="#mainwork" target="_top">
-            <img src="images/down-arrow.svg" style="height: 3rem; width: 3rem;" alt="scroll down" />
-        </a>
-    </div>
-</section>
-
-
+@code {
+    [Parameter]
+    public List<EducationData> edu { get; set; }
+}
