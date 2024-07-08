@@ -6,12 +6,12 @@
 @inject IJSRuntime JSRuntime
 @inject HttpClient Http
 @inject EducationService EducationService
-
+@inject SkillsService SkillService
 
 <PageTitle>About Me</PageTitle>
 <div class="mainpage">
     <About />
-    <Skills />
+    <Skills skill="skills" />
     <Education edu="educations" />
     <Work />
     <Projects UserPosts="userPosts" />
@@ -29,6 +29,7 @@
         try
         {
             educations = await EducationService.GetEducationsAsync();
+            skills = await SkillService.GetSkillsAsync();
             var request = new HttpRequestMessage(HttpMethod.Get, "https://api.github.com/users/hizrawan/repos?sort=created&direction=desc");
             var requestblog = new HttpRequestMessage(HttpMethod.Get, "https://dev.to/api/articles?username=hizrawandwioka");
             request.Headers.Add("User-Agent", "Mozilla/5.0 (compatible; BlazorApp)");
@@ -79,5 +80,6 @@
     }
 
     private List<EducationData> educations;
+    private List<SkillData> skills;
 
 }

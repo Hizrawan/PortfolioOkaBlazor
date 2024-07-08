@@ -11,6 +11,7 @@ namespace PortfolioOkaBlazor.Persistence
             Database.EnsureCreated();
         }
         public DbSet<EducationData> Educations { get; set; }
+        public DbSet<SkillData> Skills { get; set; }
         public DbSet<WorkExperience> WorkExperiences { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,15 @@ namespace PortfolioOkaBlazor.Persistence
 
             );
 
+            modelBuilder.Entity<SkillData>().HasKey(p => p.Id);
+            modelBuilder.Entity<SkillData>().HasData(
+                 new SkillData("C#", "Experienced in .NET development, including ASP.NET Core and Entity Framework."),
+                 new SkillData("Front-End", "Proficient in HTML, CSS, JavaScript, and Blazor."),
+                  new SkillData("Back-End", "Knowledgeable in databases, and API development."),
+                 new SkillData("Project Management", "Familiar with Agile methodologies and version control systems like Git."),
+                  new SkillData("Game Development", "Currently developing game using Godot Engine")
+
+            );
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

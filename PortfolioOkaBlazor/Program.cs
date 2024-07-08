@@ -14,6 +14,11 @@ using PortfolioOkaBlazor.Features.WorkExperiences.Queries.List;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Create;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Delete;
 using PortfolioOkaBlazor.Features.WorkExperiences.Commands.Update;
+using PortfolioOkaBlazor.Features.Skills.Queries.Get;
+using PortfolioOkaBlazor.Features.Skills.Queries.List;
+using PortfolioOkaBlazor.Features.Skills.Commands.Create;
+using PortfolioOkaBlazor.Features.Skills.Commands.Delete;
+using PortfolioOkaBlazor.Features.Skills.Commands.Update;
 using PortfolioOkaBlazor.Services;
 
 
@@ -27,6 +32,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IWebHostEnvironment>(builder.Environment);
 builder.Services.AddDbContext<AppDbContext>();
 builder.Services.AddScoped<EducationService>();
+builder.Services.AddScoped<SkillsService>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 builder.Services.AddScoped(sp =>
 {
@@ -35,6 +41,32 @@ builder.Services.AddScoped(sp =>
 });
 
 var app = builder.Build();
+
+app.MapGet("/Skills/{id:guid}", async (Guid id, ISender mediatr) =>
+{
+    var Skill = await mediatr.Send(new GetSkillQuery(id));
+    if (Skill == null) return Results.NotFound();
+    return Results.Ok(Skill);
+});
+
+app.MapGet("/Skills", async (ISender mediatr) =>
+{
+    var Skills = await mediatr.Send(new ListSkillsQuery());
+    return Results.Ok(Skills);
+});
+
+app.MapPost("/Skills", async (CreateSkillCommand command, ISender mediatr) =>
+{
+    var SkillId = await mediatr.Send(command);
+    if (Guid.Empty == SkillId) return Results.BadRequest();
+    return Results.Created($"/Skills/{SkillId}", new { id = SkillId });
+});
+
+app.MapDelete("/Skills/{id:guid}", async (Guid id, ISender mediatr) =>
+{
+    await mediatr.Send(new DeleteSkillCommand(id));
+    return Results.NoContent();
+});
 
 app.MapGet("/Educations/{id:guid}", async (Guid id, ISender mediatr) =>
 {
